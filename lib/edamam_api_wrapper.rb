@@ -22,8 +22,13 @@ class EdamamApiWrapper
     data = HTTParty.get(url)
     # binding.pry
     if data["hits"]
+      list = []
       recipes = data["hits"]
-      return recipes
+      # binding.pry
+      recipes.each do |recipe|
+        list << (Recipe.new recipe["recipe"]["label"], recipe["recipe"]["url"], {image: recipe["recipe"]["image"], ingredients: recipe["recipe"]["ingredients"], diet_info: recipe["recipe"]["totalNutrients"], health_labels: recipe["recipe"]["healthLabels"]})
+      end
+      return list
     else
       return []
     end
