@@ -40,17 +40,17 @@ describe EdamamApiWrapper do
       end
     end
   end
-  # it "will return [] for a broken request" do
-  #   broken_request_params  = {
-  #     "query" => ""
-  #   }
-  #
-  #   VCR.use_cassette("recipes_no_model") do
-  #     recipes = EdamamApiWrapper.list_recipes(broken_request_params)
-  #     recipes.must_be_instance_of Array
-  #
-  #     recipes.length.must_equal 0
-  #   end
-  #
-  # end
+  it "will return [] for a broken request" do
+    broken_request_params  = {
+      "query" => ""
+    }
+
+    VCR.use_cassette("recipes_no_model") do
+      recipes = EdamamApiWrapper.list_recipes(broken_request_params)
+      recipes.must_be_instance_of Array
+
+      recipes.length.must_equal 0
+    end
+
+  end
 end
