@@ -10,7 +10,7 @@ class EdamamApiWrapper
     input_params["health"] ? health = input_params["health"] : health = nil
 
     input_params["from"] ? from = input_params["from"] : from = 0
-    input_params["to"] ? from = input_params["to"] : to = 10
+    input_params["to"] ? to = input_params["to"] : to = 10
 
     app_id = APP_ID
     app_key ||= APP_KEY
@@ -28,7 +28,10 @@ class EdamamApiWrapper
       recipes.each do |recipe|
         list << (Recipe.new recipe["recipe"]["label"], recipe["recipe"]["url"], {image: recipe["recipe"]["image"], ingredients: recipe["recipe"]["ingredients"], diet_info: recipe["recipe"]["totalNutrients"], health_labels: recipe["recipe"]["healthLabels"]})
       end
-      return list
+      recipe_data = {}
+      recipe_data["info"] = ({more: data["more"], count: data["count"], url: url})
+      recipe_data["recipes"] = list
+      return recipe_data
     else
       return []
     end
