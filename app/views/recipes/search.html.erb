@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>
+      Result
+    </th>
+    <th>
+      Recipe Name
+    </th>
+    <th>
+      URL
+    </th>
+  </tr>
+  <% i = 1 %>
+  <% @recipes.each do |recipe| %>
+  <tr>
+    <td>
+      <%= i %>
+    </td>
+    <td>
+      <%= recipe.name %>
+    </td>
+    <td>
+      <%= link_to "off site link", recipe.link %>
+    </td>
+  </tr>
+  <% i += 1 %>
+  <% end %>
+</table>

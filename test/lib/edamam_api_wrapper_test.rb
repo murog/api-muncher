@@ -57,8 +57,8 @@ describe EdamamApiWrapper do
   it "will return list based on to and from params" do
     chicken_params  = {
       "query" => "chicken",
-      "to" => "11",
-      "from" =>"12"
+      "to" => "12",
+      "from" =>"11"
     }
     VCR.use_cassette("list_recipes") do
       recipe_data = EdamamApiWrapper.list_recipes(chicken_params)
