@@ -10,7 +10,7 @@
       URL
     </th>
   </tr>
-  <% i = 1 %>
+  <% i = @from.to_i %>
   <% @recipes.each do |recipe| %>
   <tr>
     <td>
@@ -28,18 +28,21 @@
 </table>
 <%= @pages %>
 <% if @current_page < 5 %>
-<% 1.upto(@pages) do |p|%>
+<% 1.upto(5) do |p|%>
 <%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
-<% end %>
-<% else %>
-<% 1.upto(5) do |p| %>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}") %>
-<% end %>
-...
-<% (@current_page - 2).upto(@current_page + 3) do |p| %>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}") %>
 <% end %>
 ...
 <% p = @pages %>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}") %>
+<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
+<% else %>
+<% 1.upto(5) do |p| %>
+<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
+<% end %>
+...
+<% (@current_page - 2).upto(@current_page + 3) do |p| %>
+<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
+<% end %>
+...
+<% p = @pages %>
+<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
 <% end %>
