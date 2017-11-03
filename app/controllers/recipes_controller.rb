@@ -18,4 +18,8 @@ class RecipesController < ApplicationController
     @from = params[:from]
     @to = params[:to]
   end
+
+  def show
+    
+  end
 end
