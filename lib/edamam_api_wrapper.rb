@@ -36,4 +36,22 @@ class EdamamApiWrapper
       return []
     end
   end
+
+  def self.find_recipe(input_uri)
+
+    # uri = input_uri.gsub("#", "%23")
+
+    url = BASE_URL + "r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{input_uri}"
+
+    data = HTTParty.get(url)
+    # binding.pry
+    if data.length > 0
+      recipe = data.first
+      recipe = Recipe.new recipe["label"], recipe["url"], {image: recipe["image"], ingredients: recipe["ingredients"], diet_info: recipe["totalNutrients"], health_labels: recipe["healthLabels"], uri: recipe["uri"]}
+      return recipe
+    else
+      return false
+    end
+  end
+
 end
