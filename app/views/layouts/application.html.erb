@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= link_to "log in using gogole", auth_callback_path("google") %>
     <%= params %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
