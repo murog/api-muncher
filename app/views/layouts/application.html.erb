@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-    <%= link_to "log in using gogole", auth_callback_path("google") %>
-    <%= params %>
+<body>
+  <%= link_to "log in using gogole", google_login_path %>
+  <%= params %>
+  <% if flash.keys.length > 0%>
+  <section class="row status">
+    <% flash.each do |name, message| %>
+    <h3 class="<%= name %>"><%= message %></h3>
+    <% end %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
-</html>
+  </html>

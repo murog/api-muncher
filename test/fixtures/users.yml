@@ -1,9 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
+crisco:
+  name: crisco
+  email: crisco@comcast.net
+  uid: 200
 
-two:
-  name: MyString
-  email: MyString
+
+chocolate_bar:
+  name: chocolate_bar
+  email: chocolate_bar@google.org
+  uid: 500
