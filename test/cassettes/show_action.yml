@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty
+      Date:
+      - Fri, 03 Nov 2017 23:46:52 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      X-Served-By:
+      - ip-10-143-141-59/10.143.141.59
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 03 Nov 2017 23:46:53 GMT
+recorded_with: VCR 3.0.3

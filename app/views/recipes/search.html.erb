@@ -9,6 +9,9 @@
     <th>
       URL
     </th>
+    <th>
+      recipe info
+    </th>
   </tr>
   <% i = 1 %>
   <% @recipes.each do |recipe| %>
@@ -21,6 +24,9 @@
     </td>
     <td>
       <%= link_to "off site link", recipe.link %>
+    </td>
+    <td>
+      <%= link_to "recipe info", show_recipe_path(recipe.uri) %>
     </td>
   </tr>
   <% i += 1 %>

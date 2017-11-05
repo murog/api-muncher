@@ -20,8 +20,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @results = EdamamApiWrapper.find_recipe(params[:id])
-    if !(@results)
+    @recipe = EdamamApiWrapper.find_recipe(params[:id])
+    if !(@recipe)
       render_404
     end
 

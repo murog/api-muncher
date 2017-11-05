@@ -26,7 +26,7 @@ class EdamamApiWrapper
       recipes = data["hits"]
       # binding.pry
       recipes.each do |recipe|
-        list << (Recipe.new recipe["recipe"]["label"], recipe["recipe"]["url"], {image: recipe["recipe"]["image"], ingredients: recipe["recipe"]["ingredients"], diet_info: recipe["recipe"]["totalNutrients"], health_labels: recipe["recipe"]["healthLabels"]})
+        list << (Recipe.new recipe["recipe"]["label"], recipe["recipe"]["url"], {image: recipe["recipe"]["image"], ingredients: recipe["recipe"]["ingredients"], diet_info: recipe["recipe"]["totalNutrients"], health_labels: recipe["recipe"]["healthLabels"], uri: recipe["recipe"]["uri"]})
       end
       recipe_data = {}
       recipe_data["info"] = ({more: data["more"], count: data["count"], url: url})

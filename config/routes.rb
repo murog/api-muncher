@@ -4,6 +4,6 @@ root 'application#index'
 get 'search/:id', to: "recipes#pages", as: "pages"
 post 'search', to: 'recipes#search', as: 'search'
 get '/results', to: 'recipes#results', as: 'results'
-get ':recipeuri', to: 'recipes#show', as: 'show_recipe'
+get 'recipes/:id', to: 'recipes#show', as: 'show_recipe'
 
 end

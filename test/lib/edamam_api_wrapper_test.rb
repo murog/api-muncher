@@ -67,4 +67,11 @@ describe EdamamApiWrapper do
       recipe_data["recipes"].each {|recipe| recipe.must_be_instance_of Recipe}
     end
   end
+  it "can find one recipe when given a uri" do
+    vegatable_stew_uri = "e128b2dfab86d911618b669d499c4274"
+    VCR.use_cassette("find_recipe") do
+      recipe_data = EdamamApiWrapper.find_recipe(vegatable_stew_uri)
+      recipe_data.must_be_instance_of Recipe
+    end
+  end
 end
