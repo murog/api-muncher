@@ -1,11 +1,10 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  before_action :find_user
-
+class UsersController < ApplicationController
   def index
-
   end
 
+  def show
+  end
+  
   def favorites
     if !(@user)
       render_404
@@ -32,5 +31,4 @@ class ApplicationController < ActionController::Base
       @favorites << recipe
     end
   end
-
 end

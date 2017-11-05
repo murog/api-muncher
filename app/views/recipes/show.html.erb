@@ -1,5 +1,7 @@
 <h1><%= @recipe.name %></h1>
 <hr />
+<%= link_to "add to favs", show_recipe_path(@recipe.uri), method: :post %>
+<hr />
 <%= image_tag(@recipe.image) %>
 <hr />
 <%= link_to "original recipe", @recipe.link, target: :_blank %>

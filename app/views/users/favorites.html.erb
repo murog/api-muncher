@@ -1,0 +1,29 @@
+<h1>Users#favorites</h1>
+<table>
+  <tr>
+    <th>
+      #
+    </th>
+    <th>
+      Recipe
+    </th>
+    <th>
+      Link
+    </th>
+  </tr>
+<% i = 1 %>
+<% @favorites.each do |recipe| %>
+<tr>
+  <td>
+    <%= i %>
+  </td>
+  <td>
+    <%= link_to recipe.name, show_recipe_path(recipe.uri) %>
+  </td>
+  <td>
+    <%= link_to "off site link", recipe.link, target: :_blank %>
+  </td>
+</tr>
+<% end %>
+</table>
+<p>Find me in app/views/users/favorites.html.erb</p>
