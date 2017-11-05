@@ -1,2 +1,52 @@
-<%= @recipe.name %>
+<h1><%= @recipe.name %></h1>
+<hr />
 <%= image_tag(@recipe.image) %>
+<hr />
+<%= link_to "original recipe", @recipe.link, target: :_blank %>
+<hr />
+<h3>Nutritional Info</h3>
+<table>
+  <tr>
+    <th>
+      Label
+    </th>
+    <th>
+      Quantity
+    </th>
+    <th>
+      Unit
+    </th>
+  </tr>
+<% @recipe.dietary_information.each do |info| %>
+<tr>
+  <% info[1].each do |k, v | %>
+  <td>
+    <%= v %>
+  </td>
+  <% end %>
+</tr>
+<% end %>
+</table>
+<hr />
+<h3>Ingredients</h3>
+<table>
+  <th>
+    Item
+  </th>
+  <th>
+    Ingredient
+  </th>
+  <% i = 1 %>
+<% @recipe.ingredients.each do |ingredient| %>
+<tr>
+  <td>
+    <%= i %>
+  </td>
+  <td>
+  <%= ingredient["text"] %>
+</td>
+</tr>
+<% i += 1 %>
+<% end %>
+</table>
+<hr />
