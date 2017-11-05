@@ -36,6 +36,27 @@ Minitest::Reporters.use!(
 # Uncomment for awesome colorful output
 # require "minitest/pride"
 
+def setup #runs once at the beginning of testing
+  OmniAuth.config.test_mode = true
+end
+
+def mock_auth_hash(user)
+  return {
+    provider: user.provider,
+    uid: user.uid,
+    info: {
+      name: user.name,
+      email: user.email
+    }
+  }
+end
+
+def log_in(user, provider)
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+  # get auth_callback_path(provider)
+  get google_login_path
+end
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
