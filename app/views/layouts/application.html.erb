@@ -12,7 +12,11 @@
 </head>
 
 <body>
+  <% if @user %>
+  <%= link_to "log out of gogogle", logout_path %>
+  <% else %>
   <%= link_to "log in using gogole", google_login_path %>
+  <% end %>
   <%= params %>
   <% if flash.keys.length > 0%>
   <section class="row status">
