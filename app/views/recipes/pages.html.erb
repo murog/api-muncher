@@ -19,8 +19,12 @@
   <% @recipes.each do |recipe| %>
   <div class="panel">
     <p class="float left"><%="result ##{i}"%></p>
+    <% if @user %>
     <% if @user.included_in_favorites?(recipe.uri) %>
     <%= link_to "★", remove_from_favorites_path(recipe.uri), method: :delete, data: {confirm: "are you sure you want to unfave #{recipe.name.downcase}?"}, class:"float right faved" %>
+    <% else %>
+    <%= link_to "★", add_to_favorites_path(recipe.uri), method: :post, class:"float right fav" %>
+    <% end %>
     <% else %>
     <%= link_to "★", add_to_favorites_path(recipe.uri), method: :post, class:"float right fav" %>
     <% end %>
