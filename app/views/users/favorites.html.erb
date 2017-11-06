@@ -1,29 +1,14 @@
-<h1>Users#favorites</h1>
-<table>
-  <tr>
-    <th>
-      #
-    </th>
-    <th>
-      Recipe
-    </th>
-    <th>
-      Link
-    </th>
-  </tr>
-<% i = 1 %>
-<% @favorites.each do |recipe| %>
-<tr>
-  <td>
-    <%= i %>
-  </td>
-  <td>
-    <%= link_to recipe.name, show_recipe_path(recipe.uri) %>
-  </td>
-  <td>
-    <%= link_to "off site link", recipe.link, target: :_blank %>
-  </td>
-</tr>
-<% end %>
-</table>
-<p>Find me in app/views/users/favorites.html.erb</p>
+<section class = row>
+  <% (!(@from) || @from == 0) ? (i = 1) : (i = @from + 1) %>
+  <% @favorites.each do |recipe| %>
+  <div class="panel">
+    <p class="float left"><%="result ##{i}"%></p>
+    <%= link_to "★", add_to_favorites_path(recipe.uri), method: :post, class:"float right fav" %>
+    <section class="row recipes">
+    <%= image_tag(recipe.image, class: "clearing-thumbs", class: "small-4 columns")%>
+    <%= link_to recipe.name, show_recipe_path(recipe.uri), class: "small-6 columns" %>
+  </section>
+  <% i += 1 %>
+</div>
+  <% end %>
+</section>

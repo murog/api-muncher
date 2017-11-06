@@ -86,12 +86,14 @@
 }
 
 .panel p {
-  font-size: 0.75em,
+  font-size: 1em;
+
 }
 
  .panel img{
    border-radius: 50%;
    align: left;
+
  }
 
  .recipes a {
@@ -112,4 +114,15 @@
  .fav {
    font-size: 3em;
    color: white;
+ }
+
+ h3 {
+   font-family: monospace;
+   background-color: lightgreen;
+   font-weight: bold;
+   text-align: center;
+ }
+
+ table {
+   font-family: 'Work Sans', 'sans-serif'
  }

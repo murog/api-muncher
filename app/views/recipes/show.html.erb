@@ -1,11 +1,39 @@
-<h1><%= @recipe.name %></h1>
+<section class = row>
+  <div class="panel small-12 columns">
+    <%= link_to "★", add_to_favorites_path(@recipe.uri), method: :post, class:"float right fav" %>
+    <section class="row recipes">
+    <%= image_tag(@recipe.image, class: "clearing-thumbs", class: "small-4 columns")%>
+    <%= link_to @recipe.name, @recipe.link, class: "small-6 columns", target: :_blank, alt: "original recipe" %>
+  </section>
+</div>
+</section>
 <hr />
-<%= link_to "add to favs", show_recipe_path(@recipe.uri), method: :post %>
-<hr />
-<%= image_tag(@recipe.image) %>
-<hr />
-<%= link_to "original recipe", @recipe.link, target: :_blank %>
-<hr />
+<section class="row">
+  <div class="small-12 medium-5 columns">
+  <h3>Ingredients</h3>
+  <table>
+    <th>
+      Item
+    </th>
+    <th>
+      Ingredient
+    </th>
+    <% i = 1 %>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <tr>
+    <td>
+      <%= i %>
+    </td>
+    <td>
+    <%= ingredient["text"] %>
+  </td>
+  </tr>
+  <% i += 1 %>
+  <% end %>
+  </table>
+  <hr />
+  </div>
+<div class="small-12 medium-5 columns">
 <h3>Nutritional Info</h3>
 <table>
   <tr>
@@ -30,25 +58,6 @@
 <% end %>
 </table>
 <hr />
-<h3>Ingredients</h3>
-<table>
-  <th>
-    Item
-  </th>
-  <th>
-    Ingredient
-  </th>
-  <% i = 1 %>
-<% @recipe.ingredients.each do |ingredient| %>
-<tr>
-  <td>
-    <%= i %>
-  </td>
-  <td>
-  <%= ingredient["text"] %>
-</td>
-</tr>
-<% i += 1 %>
-<% end %>
-</table>
-<hr />
+</div>
+
+</section>
