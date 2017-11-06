@@ -9,6 +9,8 @@ class RecipesController < ApplicationController
     @from = params["from"]
     @to = params["to"]
     @current_page = 1
+    if @user
+    end
   end
   def pages
     @current_page = params["id"].to_i
