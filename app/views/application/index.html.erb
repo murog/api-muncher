@@ -14,12 +14,14 @@
 </head>
 
 <body>
+  <nav>
   <% if @user %>
-  <%= link_to "log out of gogogle", logout_path, class: "button" %>
+  <%= link_to "log out of gogogle", logout_path, class: "float right button" %>
   <%= link_to "favorites", favorites_path, class: "button" %>
   <% else %>
   <%= link_to "log in using gogole", google_login_path, class: "button" %>
   <% end %>
+</nav>
   <%= params %>
   <% if flash.keys.length > 0%>
   <section class="row status">
@@ -29,37 +31,37 @@
     <% end %>
     <%= javascript_include_tag "application" %>
 
-<section class="row">
+    <section class="row">
 
-<%= image_tag random_image_url, class: "image-index columns small-9 small-centered columns small-offset-2 medium-offset-2 large-offset-0" %>
-</section>
-<section class="row index" >
+      <%= image_tag random_image_url, class: "image-index columns small-9 small-centered columns small-offset-2 medium-offset-2 large-offset-0" %>
+    </section>
+    <section class="row index" >
 
-  <h1 class="small-12 small-centered columns index text-center">muncher</h1>
-  <section class="columns small-12">
-    <%= form_tag pages_path(1), method: "get"  do %>
-    <%= label_tag(:query, "Start munching") %>
-    <%= text_field_tag(:query) %>
-    <%= submit_tag "Send", class: "button round" %>
+      <h1 class="small-12 small-centered columns index text-center">muncher</h1>
+      <section class="columns small-12">
+        <%= form_tag pages_path(1), method: "get"  do %>
+        <%= label_tag(:query, "Start munching") %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag "Send", class: "button round" %>
 
-    <% end %>
-  </section>
-</section>
+        <% end %>
+      </section>
+    </section>
 
-<hr class="small-10 small-centered columns"/ >
-<section class="row">
-  <% if @user %>
-  <h3>recent searches</h3>
-  <% @user.recent_searches.each do |search| %>
-  <%= link_to search, pages_path(1, query: "#{search}"), class: "button tiny"%>
-  <% end %>
-  <% end %>
-</section>
-<section class="row footer">
-  <p>
+    <hr class="small-10 small-centered columns"/ >
+    <section class="row">
+      <% if @user %>
+      <h3 class="small-4 index">recent searches</h3>
+      <% @user.recent_searches.each do |search| %>
+      <%= link_to search, pages_path(1, query: "#{search}"), class: "button tiny"%>
+      <% end %>
+      <% end %>
+    </section>
+    <section class="row footer">
+      <p>
 
-  </p>
-</section>
+      </p>
+    </section>
 
-</body>
-</html>
+  </body>
+  </html>

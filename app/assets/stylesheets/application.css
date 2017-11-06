@@ -27,6 +27,18 @@
    text-shadow: yellow 10px -20px 50px;
  }
 
+ #index-link {
+   color: black;
+   text-shadow: yellow 10px -20px 50px;
+   text-align: center;
+   font-family: 'Work Sans', sans-serif;
+ }
+
+ #index-link:hover {
+   text-shadow: pink 10px -20px 50px;
+
+ }
+
  .button {
    background-color: pink;
    font-family: 'Work Sans', sans-serif;
@@ -36,6 +48,17 @@
    background-color: yellow;
  }
 
+ .button:active {
+   background-color: green;
+ }
+
+ .button:focus {
+   background-color: orange;
+ }
+
+/*.button:visited {
+  background-color: pink;
+}*/
 
  .image-index {
   position: absolute;

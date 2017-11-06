@@ -14,12 +14,17 @@
 </head>
 
 <body>
+  <nav>
   <% if @user %>
-  <%= link_to "log out of gogogle", logout_path, class: "button" %>
-  <%= link_to "favorites", favorites_path, class: "button" %>
+  <%= link_to "log out of gogogle", logout_path, class: "float right button" %>
+  <%= link_to "favorites", favorites_path, class: "float left  button" %>
   <% else %>
-  <%= link_to "log in using gogole", google_login_path, class: "button" %>
+  <%= link_to "log in using gogole", google_login_path, class: "float right columns button" %>
   <% end %>
+  <section class="row">
+      <h1><%= link_to "muncher", root_path, class: "small-12 small-centered columns text-center", id: "index-link" %></h1>
+  </section>
+</nav>
   <%= params %>
   <% if flash.keys.length > 0%>
   <section class="row status">
