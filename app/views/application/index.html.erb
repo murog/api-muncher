@@ -16,13 +16,12 @@
 <body>
   <nav>
   <% if @user %>
-  <%= link_to "log out of gogogle", logout_path, class: "float right button" %>
+  <%= link_to "log out", logout_path, class: "float right button" %>
   <%= link_to "favorites", favorites_path, class: "button" %>
   <% else %>
-  <%= link_to "log in using gogole", google_login_path, class: "button" %>
+  <%= link_to "log in using google", google_login_path, class: "button" %>
   <% end %>
 </nav>
-  <%= params %>
   <% if flash.keys.length > 0%>
   <section class="row status">
     <% flash.each do |name, message| %>

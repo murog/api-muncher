@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title>muncher</title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,16 +16,15 @@
 <body>
   <nav>
   <% if @user %>
-  <%= link_to "log out of gogogle", logout_path, class: "float right button" %>
+  <%= link_to "log out", logout_path, class: "float right button" %>
   <%= link_to "favorites", favorites_path, class: "float right  button" %>
   <% else %>
-  <%= link_to "log in using gogole", google_login_path, class: "float right columns button" %>
+  <%= link_to "log in using google", google_login_path, class: "float right columns button" %>
   <% end %>
   <section class="row">
       <h1><%= link_to "muncher", root_path, class: "small-1 medium-offset-2 large-1 columns text-left", id: "index-link" %></h1>
   </section>
 </nav>
-  <%= params %>
   <% if flash.keys.length > 0%>
   <section class="row status">
     <% flash.each do |name, message| %>
@@ -34,5 +33,17 @@
     <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
+<footer class="row">
+  <section class="columns small-12">
+    <%= form_tag pages_path(1), method: "get"  do %>
+    <%= text_field_tag(:query, "keep munching") %>
+    <%= submit_tag "Send", class: "button round" %>
+
+    <% end %>
+  </section>
+  <section class="small-10 small-centered columns">
+    <h4>powered by <%= link_to image_tag("https://www.edamam.com/images/logo-site-header.png"), "https://www.edamam.com/", target: :_blank, alt: "edamam homepage"  %></h3>
+  </section>
+</footer>
   </body>
   </html>
