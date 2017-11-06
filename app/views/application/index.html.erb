@@ -1,15 +1,23 @@
-<h1>cool stuff (-:</h1>
+<section class="row index" >
+<%= image_tag random_image_url, class: "image-index" %>
+<h1 class="columns small-12">muncher</h1>
+<small>keep munching</small>
+<section class="columns small-12">
 <%= form_tag pages_path(1), method: "get"  do %>
   <%= label_tag(:query, "Enter Search Query") %>
   <%= text_field_tag(:query) %>
   <%= submit_tag "Send", class: "button" %>
 
 <% end %>
+</section>
+</section>
 
 <hr />
+<section class="row">
 <% if @user %>
 <h3>recent searches</h3>
 <% @user.recent_searches.each do |search| %>
 <%= link_to search, pages_path(1, query: "#{search}") %>
 <% end %>
 <% end %>
+</section>
