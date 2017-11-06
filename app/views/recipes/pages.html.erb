@@ -1,48 +1,46 @@
-<table>
-  <tr>
-    <th>
-      Result
-    </th>
-    <th>
-      Recipe Name
-    </th>
-    <th>
-      URL
-    </th>
-    <th>
-      recipe info
-    </th>
-  </tr>
-  <% (!(@from) || @from == 0) ? (i = 1) : (i = @from) %>
-  <% @recipes.each do |recipe| %>
-  <tr>
-    <td>
-      <%= i %>
-    </td>
-    <td>
-      <%= recipe.name %>
-    </td>
-    <td>
-      <%= link_to "off site link", recipe.link %>
-    </td>
-    <td>
-      <%= link_to "recipe info", show_recipe_path(recipe.uri) %>
-    </td>
-  </tr>
-  <% i += 1 %>
-  <% end %>
-</table>
-<%= @pages %>
+<section class="pages row text-center">
 <% if @current_page <= 1 %>
-<%= "current page #{@current_page}" %>
+<%= "page #{@current_page} of #{@pages}" %>
 <% p = @current_page + 1 %>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
+<%= link_to "page #{p}→", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float right button tiny"  %>
 <% else %>
 <% p = @current_page - 1%>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
-<%= "current page #{@current_page}" %>
+<%= link_to "←page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float left button tiny" %>
+<%= "page #{@current_page} of #{@pages}" %>
 <% if (@current_page + 1) <= @pages %>
 <% p = @current_page + 1 %>
-<%= link_to "page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages) %>
+<%= link_to "page #{p}→", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float right button tiny" %>
 <% end %>
 <% end %>
+</section>
+
+<section class = row>
+  <% (!(@from) || @from == 0) ? (i = 1) : (i = @from + 1) %>
+  <% @recipes.each do |recipe| %>
+  <div class="panel">
+    <p class="float left"><%="result ##{i}"%></p>
+    <%= link_to "★", add_to_favorites_path(recipe.uri), method: :post, class:"float right fav" %>
+    <section class="row recipes">
+    <%= image_tag(recipe.image, class: "clearing-thumbs", class: "small-4 columns")%>
+    <%= link_to recipe.name, show_recipe_path(recipe.uri), class: "small-6 columns" %>
+  </section>
+  <% i += 1 %>
+</div>
+  <% end %>
+</section>
+
+<section class="pages row text-center">
+<% if @current_page <= 1 %>
+<div><%= "page #{@current_page} of #{@pages}" %></div>
+<% p = @current_page + 1 %>
+<%= link_to "page #{p}→", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float right button tiny"  %>
+<% else %>
+<% p = @current_page - 1%>
+<%= link_to "←page #{p}", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float left button tiny" %>
+<%= "page #{@current_page} of #{@pages}" %>
+<% if (@current_page + 1) <= @pages %>
+<% p = @current_page + 1 %>
+<%= link_to "page #{p}→", pages_path(p, query: params["query"], to:"#{p*10}", from: "#{(p*10)-10}", pages: @pages), class: "float right button tiny" %>
+<% end %>
+<% end %>
+</section>

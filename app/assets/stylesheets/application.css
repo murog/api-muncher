@@ -38,6 +38,14 @@
    text-shadow: pink 10px -20px 50px;
 
  }
+ .pages .button {
+   background-color: lightgreen;
+ }
+
+ .pages {
+   font-family: 'Work Sans';
+   
+ }
 
  .button {
    background-color: pink;
@@ -47,6 +55,11 @@
  .button:hover {
    background-color: yellow;
  }
+
+ .pages .button:hover {
+   background-color: orange;
+ }
+
 
  .button:active {
    background-color: green;
@@ -65,4 +78,39 @@
   z-index: -5;
   opacity: 0.1;
   border-radius: 50%;
+ }
+
+.panel {
+  font-family: monospace;
+
+}
+
+.panel p {
+  font-size: 0.75em,
+  font-style: oblique;
+}
+
+ .panel img{
+   border-radius: 50%;
+   align: left;
+ }
+
+ .recipes a {
+   font-size: 3em;
+   background-color: yellow;
+   color: black;
+   font-style: oblique;
+ }
+
+ .recipes a:hover {
+   font-weight: bolder;
+ }
+
+ .fav:hover {
+   color: pink;
+ }
+
+ .fav {
+   font-size: 3em;
+   color: white;
  }
