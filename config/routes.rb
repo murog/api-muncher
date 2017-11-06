@@ -12,7 +12,7 @@ post 'recipes/:id', to: 'recipes#add_to_favorites', as: 'add_to_favorites'
 delete 'recipes/:id', to: 'recipes#remove_from_favorites', as: 'remove_from_favorites'
 get 'logout', to: 'sessions#logout', as: 'logout'
 get "/auth/google_oauth2", to: "sessions#create", as: "google_login"
-get "/auth/:provider/callback", to: "sessions#create", as: "auth_callback"
+get "/auth/google_oauth2/callback", to: "sessions#create", as: "auth_callback"
 
 
 end
