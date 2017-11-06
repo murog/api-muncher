@@ -2,7 +2,7 @@
 <%= form_tag pages_path(1), method: "get"  do %>
   <%= label_tag(:query, "Enter Search Query") %>
   <%= text_field_tag(:query) %>
-  <%= submit_tag("Send") %>
+  <%= submit_tag "Send", class: "button" %>
 
 <% end %>
 

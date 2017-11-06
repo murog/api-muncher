@@ -13,10 +13,10 @@
 
 <body>
   <% if @user %>
-  <%= link_to "log out of gogogle", logout_path %>
-  <%= link_to "favorites", favorites_path %>
+  <%= link_to "log out of gogogle", logout_path, class: "button" %>
+  <%= link_to "favorites", favorites_path, class: "button" %>
   <% else %>
-  <%= link_to "log in using gogole", google_login_path %>
+  <%= link_to "log in using gogole", google_login_path, class: "button" %>
   <% end %>
   <%= params %>
   <% if flash.keys.length > 0%>
