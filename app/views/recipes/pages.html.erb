@@ -13,7 +13,7 @@
       recipe info
     </th>
   </tr>
-  <% i = 1 %>
+  <% !(@from) ? (i = 1) : (i = @from) %>
   <% @recipes.each do |recipe| %>
   <tr>
     <td>
