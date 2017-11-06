@@ -6,7 +6,6 @@ resources :users
 root 'application#index'
 get 'favorites', to: "users#favorites", as: "favorites"
 get 'search/:id', to: "recipes#pages", as: "pages"
-post 'search', to: 'recipes#search', as: 'search'
 get '/results', to: 'recipes#results', as: 'results'
 get 'recipes/:id', to: 'recipes#show', as: 'show_recipe'
 post 'recipes/:id', to: 'recipes#add_to_favorites', as: 'add_to_favorites'

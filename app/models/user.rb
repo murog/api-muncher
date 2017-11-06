@@ -9,6 +9,14 @@ class User < ApplicationRecord
     self.favorites << input_recipe_uri
   end
 
+  def included_in_favorites?(input_recipe_uri)
+    if self.favorites.include? input_recipe_uri
+      return true
+    else
+      return false
+    end
+  end
+
   def update_recent_searches
     if self.recent_searches.length > 5
       while self.recent_searches.length > 5

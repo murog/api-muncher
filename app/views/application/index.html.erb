@@ -1,7 +1,15 @@
 <h1>cool stuff (-:</h1>
-<%= form_tag search_path, method: "post"  do %>
+<%= form_tag pages_path(1), method: "get"  do %>
   <%= label_tag(:query, "Enter Search Query") %>
   <%= text_field_tag(:query) %>
   <%= submit_tag("Send") %>
 
+<% end %>
+
+<hr />
+<% if @user %>
+<h3>recent searches</h3>
+<% @user.recent_searches.each do |search| %>
+<%= link_to search, pages_path(1, query: "#{search}") %>
+<% end %>
 <% end %>
