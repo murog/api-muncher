@@ -1,7 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+  <% if @user %>
+  <%= link_to "log out of gogogle", logout_path, class: "button" %>
+  <%= link_to "favorites", favorites_path, class: "button" %>
+  <% else %>
+  <%= link_to "log in using gogole", google_login_path, class: "button" %>
+  <% end %>
+  <%= params %>
+  <% if flash.keys.length > 0%>
+  <section class="row status">
+    <% flash.each do |name, message| %>
+    <h3 class="<%= name %>"><%= message %></h3>
+    <% end %>
+    <% end %>
+    <%= javascript_include_tag "application" %>
+
+<section class="row">
+
+<%= image_tag random_image_url, class: "image-index columns small-9 small-centered columns small-offset-2 medium-offset-2 large-offset-0" %>
+</section>
 <section class="row index" >
-  <%= image_tag random_image_url, class: "image-index columns small-10 small-centered columns" %>
+
   <h1 class="small-12 small-centered columns index text-center">muncher</h1>
-  <small>keep munching</small>
   <section class="columns small-12">
     <%= form_tag pages_path(1), method: "get"  do %>
     <%= label_tag(:query, "Start munching") %>
@@ -17,7 +51,15 @@
   <% if @user %>
   <h3>recent searches</h3>
   <% @user.recent_searches.each do |search| %>
-  <%= link_to search, pages_path(1, query: "#{search}"), class: "label"%>
+  <%= link_to search, pages_path(1, query: "#{search}"), class: "button tiny"%>
   <% end %>
   <% end %>
 </section>
+<section class="row footer">
+  <p>
+
+  </p>
+</section>
+
+</body>
+</html>

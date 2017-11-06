@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :find_user
 
   def index
-
+    render :layout => false
   end
 
   def favorites

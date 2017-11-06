@@ -19,6 +19,23 @@
    font-family: 'Work Sans', sans-serif;
  }
 
+ .index h1{
+   font-size: 6em;
+ }
+
+ .index h1:hover {
+   text-shadow: yellow 10px -20px 50px;
+ }
+
+ .button {
+   background-color: pink;
+   font-family: 'Work Sans', sans-serif;
+ }
+
+ .button:hover {
+   background-color: yellow;
+ }
+
 
  .image-index {
   position: absolute;
