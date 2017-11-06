@@ -6,6 +6,8 @@
     <% else %>
     <%= link_to "★", add_to_favorites_path(@recipe.uri), method: :post, class:"float right fav" %>
     <% end %>
+    <% else %>
+    <%= link_to "★", add_to_favorites_path(@recipe.uri), method: :post, class:"float right fav" %>
     <% end %>
     <section class="row recipes">
     <%= image_tag(@recipe.image, class: "clearing-thumbs", class: "small-4 columns")%>
