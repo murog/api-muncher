@@ -116,6 +116,15 @@
    color: white;
  }
 
+ .faved {
+   color:pink;
+   font-size: 3em;
+ }
+
+ .faved:hover {
+   color:white;
+ }
+
  h3 {
    font-family: monospace;
    background-color: lightgreen;

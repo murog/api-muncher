@@ -47,7 +47,27 @@ class RecipesController < ApplicationController
     else
       flash[:error] = "Try logging in to save a recipe to your favorites!"
     end
-    redirect_to show_recipe_path(@recipe.uri)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def remove_from_favorites
+    if !(@user)
+      render_404
+    end
+    @recipe = EdamamApiWrapper.find_recipe(params[:id])
+    if !(@recipe)
+      render_404
+    end
+    if @user.remove_from_favorites(@recipe.uri)
+      if @user.save
+        flash[:result] = "Successfully removed #{@recipe.name} from your favorites (-:"
+      else
+        @user.errors.each {|key, value| flash["#{key}"] = "#{value}"}
+      end
+    else
+      flash[:error] = "Uh oh! Something went wrong )-:"
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -1,6 +1,12 @@
 <section class = row>
   <div class="panel small-12 columns">
+    <% if @user %>
+    <% if @user.included_in_favorites?(@recipe.uri) %>
+    <%= link_to "★", remove_from_favorites_path(@recipe.uri), method: :delete, data: {confirm: "are you sure you want to unfave #{@recipe.name.downcase}?"}, class:"float right faved" %>
+    <% else %>
     <%= link_to "★", add_to_favorites_path(@recipe.uri), method: :post, class:"float right fav" %>
+    <% end %>
+    <% end %>
     <section class="row recipes">
     <%= image_tag(@recipe.image, class: "clearing-thumbs", class: "small-4 columns")%>
     <%= link_to @recipe.name, @recipe.link, class: "small-6 columns", target: :_blank, alt: "original recipe" %>

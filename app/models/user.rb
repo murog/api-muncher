@@ -17,6 +17,15 @@ class User < ApplicationRecord
     end
   end
 
+  def remove_from_favorites(input_recipe_uri)
+    if self.favorites.delete(input_recipe_uri)
+      return true
+    else
+      return false
+    end
+
+  end
+
   def update_recent_searches
     if self.recent_searches.length > 5
       while self.recent_searches.length > 5
@@ -26,4 +35,5 @@ class User < ApplicationRecord
     end
     return false
   end
+
 end
